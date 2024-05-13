@@ -19,7 +19,7 @@ function Home() {
                   bulk of the card's content.
                 </Card.Text>
                 <div className='text-center'>
-                <Button variant="info"><Link style={{textDecoration:"none"}} to={''}>
+                <Button variant="info"><Link style={{textDecoration:"none"}} to={'/:id/view'}>
                   View More.....</Link></Button>
                 </div>
               </Card.Body>
