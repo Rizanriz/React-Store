@@ -1,5 +1,5 @@
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Wishlist from './pages/Wishlist'
 import Cart from './pages/Cart'
@@ -15,6 +15,8 @@ function App() {
         <Route  element={<Wishlist/>} path='/wishlist'/>
         <Route  element={<Cart/>} path='/cart'/>
         <Route  element={<View/>} path='/:id/view'/>
+
+        <Route path='/*' element={<Navigate to={'/'}/>}/>
      </Routes>
      <Footer/>
     </>
