@@ -13,6 +13,7 @@ function Home() {
   useEffect(()=>{
     dispatch(fetchProducts())
   },[])
+
   
   return (
     <>
