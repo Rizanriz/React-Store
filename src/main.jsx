@@ -10,7 +10,7 @@ import realStore from './Components/redux/realStore.js'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={realStore}>
     <BrowserRouter>
-      <App />
+      <App /> 
     </BrowserRouter>
   </Provider>
 )

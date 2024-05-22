@@ -8,7 +8,7 @@ import { fetchProducts } from '../Slice/productSlice';
 function Home() {
   
   const dispatch = useDispatch()
-  const {allProducts,loading,error}  =useSelector(state=>state.productReducer)
+  const {allProducts,loading,error} = useSelector(state=>state.productReducer)
 
   useEffect(()=>{
     dispatch(fetchProducts())
