@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Wishlist from './Wishlist';
 import { addToWishlist } from '../Slice/wishlistSlice';
+import { addToCart } from '../Slice/cartSlice';
 
 function View() {
 
@@ -47,7 +48,7 @@ function View() {
             <p>{product?.description}</p>
             <div className='d-flex justify-content-evenly mt-3'>
               <button onClick={handleWishlist} className='btn bg-white text-dark '><i class="fa-regular fa-heart"></i> Add to wishlist</button>
-              <button className='btn bg-white text-dark'><i class="fa-solid fa-cart-shopping"></i> Add to cart</button>
+              <button onClick={()=>dispatch(addToCart(product)) } className='btn bg-white text-dark'><i class="fa-solid fa-cart-shopping"></i> Add to cart</button>
             </div>
           </div>
         </div>
