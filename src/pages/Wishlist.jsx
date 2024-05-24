@@ -4,12 +4,25 @@ import { Row, Col, Card, Button } from 'react-bootstrap';
 // import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeWishlistItem } from '../Slice/wishlistSlice';
+import { addToCart } from '../Slice/cartSlice';
 
 function Wishlist() {
 
   const myWishlist = useSelector(item => item.wishlistReducer)
+  const ourCart = useSelector(item => item.cartReducer)
   const dispatch = useDispatch()
 
+  const handleCart = (product)=>{
+      const existingProduct = ourCart.find(item=>item.id == product.id)
+      if (existingProduct) {
+        dispatch(addToCart(product))
+        dispatch(removeWishlistItem(product?.id))
+        alert("Product quantity incremented")
+      }else{
+        dispatch(addToCart(product))
+        dispatch(removeWishlistItem(product?.id))
+      }
+  }
   return (
     <>
       <Header />
@@ -27,7 +40,7 @@ function Wishlist() {
                   </Card.Text>
                   <div className='d-flex justify-content-between'>
                     <button onClick={()=>dispatch(removeWishlistItem(product?.id))} className='btn bg-dark text-ligth '><i class="fa-solid fa-trash"></i> </button>
-                    <button className='btn bg-dark text-ligth '><i class="fa-solid fa-cart-shopping"></i> </button>
+                    <button onClick={()=>handleCart(product)} className='btn bg-dark text-ligth '><i class="fa-solid fa-cart-shopping"></i> </button>
                   </div>
                 </Card.Body>
               </Card>
@@ -38,8 +51,7 @@ function Wishlist() {
           </Row>
           :
           <div className='d-flex flex-column align-items-center justify-content-center '>
-            <img width={"400px"} src="https://cdn-icons-png.flaticon.com/512/11329/11329060.png" alt="" />
-            <h3 className='mt-3'>Your wishlist is empty</h3>
+            <img width={"400px"} src="https://evyapari.com/static/media/empty_wishlist.4b6281beecbb34e00bf3.png" alt="" />
           </div>
         }
       </div>
