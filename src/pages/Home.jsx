@@ -30,7 +30,7 @@ function Home() {
           allProducts?.length>0 ?
             allProducts?.map(product=>(
               <Col key={product?.id} className='mb-5' sm={12} md={6} lg={4} xl={3}>
-            <Card style={{ width: '18rem',  border: '1px solid #000', height:"450px"}}>
+            <Card style={{  border: '1px solid #000', height:"450px"}}>
               <Card.Img height={"180px"} variant="top" src={product?.thumbnail} />
               <Card.Body>
                 <Card.Title>{product?.title}</Card.Title>

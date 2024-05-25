@@ -55,7 +55,7 @@ function View() {
             <h3 className='text-danger'>{product.price}$</h3>
             <p>{product?.description}</p>
             <div className='d-flex justify-content-evenly mt-3'>
-              <button onClick={handleWishlist} className='btn bg-white text-dark '><i class="fa-regular fa-heart"></i> Add to wishlist</button>
+              <button onClick={handleWishlist} className='btn bg-white text-dark'><i class="fa-regular fa-heart"></i> Add to wishlist</button>
               <button onClick={handleCart } className='btn bg-white text-dark'><i class="fa-solid fa-cart-shopping"></i> Add to cart</button>
             </div>
           </div>

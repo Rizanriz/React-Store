@@ -50,7 +50,7 @@ function Wishlist() {
             }
           </Row>
           :
-          <div className='d-flex flex-column align-items-center justify-content-center '>
+          <div className='d-flex flex-column align-items-center justify-content-center  '>
             <img width={"400px"} src="https://evyapari.com/static/media/empty_wishlist.4b6281beecbb34e00bf3.png" alt="" />
           </div>
         }
