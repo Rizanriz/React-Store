@@ -2,13 +2,22 @@ import Header from '../Components/Header'
 import { useDispatch, useSelector } from 'react-redux'
 import { decQuantity, emptyCart, incQuantity, removeCartItem } from '../Slice/cartSlice'
 import { Link, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 function Cart() {
 
   const myCart = useSelector(item => item.cartReducer)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [cartTotal,setCartTotal] = useState(0)
 
+  useEffect(()=>{
+    if (myCart?.length>0) {
+        setCartTotal(myCart?.map(item=>item.totalprice).reduce((p1,p2)=>p1+p2))
+    }else{
+      setCartTotal(0)
+    }
+  },[myCart])
   const handleDecrement =(product)=>{
     if (product.quantity>1) {
       dispatch(decQuantity(product.id))
@@ -68,7 +77,7 @@ function Cart() {
               </div>
               <div className="col-lg-4">
                     <div className='border rounded p-3'>
-                        <h4>Total amount : <span className='text-danger'>$3400</span></h4>
+                        <h4 className='text-center'>Total amount : <span className='text-warning'>{cartTotal} $</span></h4>
                         <hr />
                         <div className='d-grid'>
                             <button onClick={checkOut} className='btn btn-success'>Check out</button>
